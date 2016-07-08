@@ -31,26 +31,26 @@
 #include "SimpleGPIO.h"
 using namespace std;
 
-unsigned int LEDGPIO = 60;   // GPIO1_28 = (1x32) + 28 = 60
-unsigned int ButtonGPIO = 15;   // GPIO0_15 = (0x32) + 15 = 15
+unsigned int LEDGPIO = 40;   // GPIO1_28 = (1x32) + 28 = 60
+unsigned int ButtonGPIO = 46;   // GPIO0_15 = (0x32) + 15 = 15
 
 int main(int argc, char *argv[]){
 
 	cout << "Testing the GPIO Pins" << endl;
 
-        gpio_export(LEDGPIO);    // The LED
+    gpio_export(LEDGPIO);    // The LED
 	gpio_export(ButtonGPIO);   // The push button switch
-        gpio_set_dir(LEDGPIO, OUTPUT_PIN);   // The LED is an output
+    gpio_set_dir(LEDGPIO, OUTPUT_PIN);   // The LED is an output
 	gpio_set_dir(ButtonGPIO, INPUT_PIN);   // The push button input
 	
 	// Flash the LED 5 times
 	for(int i=0; i<5; i++){
 		cout << "Setting the LED on" << endl;
-                gpio_set_value(LEDGPIO, HIGH);
-		usleep(200000);         // on for 200ms
+        gpio_set_value(LEDGPIO, HIGH);
+		usleep(2000000);         // on for 2000ms
 		cout << "Setting the LED off" << endl;
-                gpio_set_value(LEDGPIO, LOW);
-		usleep(200000);         // off for 200ms
+        gpio_set_value(LEDGPIO, LOW);
+		usleep(2000000);         // off for 2000ms
 	}
 
 	// Wait for the push button to be pressed
